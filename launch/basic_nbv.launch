@@ -1,0 +1,55 @@
+<launch>
+
+    <arg name="occupancy_topic"         default="/camera/depth/color/points"/>
+    <arg name="poi_topic"               default="/aruco_single/poi"/>
+   
+    <arg name="voxel_resolution"        default="0.02"/>
+    <arg name="sensor_range_max"        default="1.5"/>
+    <arg name="sphere_radius"           default="0.5"/>
+ 
+    <arg name="horizontal_resolution"   default="10.0" />
+    <arg name="vertical_resolution"     default="10.0" />
+    <arg name="half_fov_horizontal"     default="30.0" />
+    <arg name="half_fov_vertical"       default="30.0" />
+
+    <arg name="latitude_max"            default="60.0" />
+    <arg name="latitude_min"            default="-60.0" />
+    <arg name="latitude_step"           default="30.0" />
+    <arg name="longitude_max"           default="315.0" />
+    <arg name="longitude_min"           default="0.0" />
+    <arg name="longitude_step"          default="45.0" />
+    <arg name="zrotation_max"           default="270.0" />
+    <arg name="zrotation_min"           default="0.0" />
+    <arg name="zrotation_step"          default="90.0" />
+
+    <arg name="occupied_voxel_weight"   default="0.0" />
+    <arg name="unknown_voxel_weight"    default="1.0" />
+
+    <node pkg="basic_next_best_view" type="basic_next_best_view" name="basic_nbv" output="screen">
+        <param name="occupancy_topic"           value="$(arg occupancy_topic)"/>
+        <param name="poi_topic"                 value="$(arg poi_topic)"/>
+
+        <param name="voxel_resolution"          value="$(arg voxel_resolution)"/>
+        <param name="sensor_range_max"          value="$(arg sensor_range_max)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="sphere_radius"             value="$(arg sphere_radius)"/>
+
+        <param name="horizontal_resolution"     value="$(arg horizontal_resolution)" />
+        <param name="vertical_resolution"       value="$(arg vertical_resolution)" />
+        <param name="half_fov_horizontal"       value="$(arg half_fov_horizontal)" />
+        <param name="half_fov_vertical"         value="$(arg half_fov_vertical)" />
+
+        <param name="latitude_max"              value="$(arg latitude_max)" />
+        <param name="latitude_min"              value="$(arg latitude_min)" />
+        <param name="latitude_step"             value="$(arg latitude_step)" />
+        <param name="longitude_max"             value="$(arg longitude_max)" />
+        <param name="longitude_min"             value="$(arg longitude_min)" />
+        <param name="longitude_step"            value="$(arg longitude_step)" />
+        <param name="zrotation_max"             value="$(arg zrotation_max)" />
+        <param name="zrotation_min"             value="$(arg zrotation_min)" />
+        <param name="zrotation_step"            value="$(arg zrotation_step)" />
+
+        <param name="occupied_voxel_weight"     value="$(arg occupied_voxel_weight)" />
+        <param name="unknown_voxel_weight"      value="$(arg unknown_voxel_weight)" />
+    </node>
+
+</launch>

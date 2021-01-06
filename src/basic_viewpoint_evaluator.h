@@ -194,9 +194,9 @@ public:
     m_ordered_pose_indices_computed = false;
   }
 
-  bool isSensorPosesComputed() { return m_sensor_poses_computed;}
-  bool isPoseWeightsComputed() { return m_pose_weights_computed;}
-  bool isOrderedPosesComputed() { return m_ordered_pose_indices_computed;}
+  bool isSensorPosesComputed() { return m_sensor_poses_computed; }
+  bool isPoseWeightsComputed() { return m_pose_weights_computed; }
+  bool isOrderedPosesComputed() { return m_ordered_pose_indices_computed; }
 
   // NULL if failed
   const std::vector<Eigen::Affine3f> * getCandidates()
@@ -248,8 +248,8 @@ public:
     return result;
   }
 
-  void setOccupiedWeight(double w) {m_occupied_weight = w; }
-  void setUnknownWeight(double w) {m_unknown_weight = w; }
+  void setOccupiedWeight(double w) { m_occupied_weight = w; }
+  void setUnknownWeight(double w) { m_unknown_weight = w; }
 
   Weight computeWeight(uint unknown,uint occupied) const
   {

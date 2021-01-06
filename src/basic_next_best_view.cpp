@@ -204,7 +204,7 @@ public:
       ROS_ERROR("basic_next_best_view: attempted to change parameters while running!");
       return;
     }
-
+    
     Eigen::Vector3f poi;
     poi.x() = pt.x;
     poi.y() = pt.y;
@@ -366,8 +366,8 @@ public:
 
     if (response.ok)
       m_execute_action_server->setSucceeded(*result);
-      else
-        m_execute_action_server->setAborted(*result);
+    else
+      m_execute_action_server->setAborted(*result);
 
     // scope only
     {
@@ -404,13 +404,13 @@ public:
     uint size = (*sensor_poses).size();
     pose_array.poses.reserve(size);
     for (uint i = 0; i < size; i++)
-      {
+    {
       // apply index filter
       if (request.has_index_range && (i < request.start_from_index || i >= request.end_before_index))
         continue;
 
       pose_array.poses.push_back(_FromEigenToROSPose((*sensor_poses)[i]));
-      }
+    }
 
     response.ok = true;
   }
@@ -499,13 +499,13 @@ public:
     uint size = indices->size();
     pose_array.poses.reserve(size);
     for (uint i = 0; i < size; i++)
-      {
+    {
       // apply index filter
       if (request.has_index_range && (i < request.start_from_index || i >= request.end_before_index))
         continue;
 
       pose_array.poses.push_back(_FromEigenToROSPose((*sensor_poses)[(*indices)[i]]));
-      }
+    }
 
     response.ok = true;
   }
@@ -531,14 +531,14 @@ public:
     uint counter = 0;
     message.data.reserve(size);
     for (uint i = 0; i < size; i++)
-      {
+    {
       // apply index filter
       if (request.has_index_range && (i < request.start_from_index || i >= request.end_before_index))
         continue;
 
       message.data.push_back((*weights)[i]);
       counter++;
-      }
+    }
 
     std_msgs::MultiArrayDimension dim;
     dim.label = "weights";
