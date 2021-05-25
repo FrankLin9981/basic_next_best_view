@@ -191,7 +191,7 @@ public:
       BasicViewpointEvaluator::PointCloudXYZI::Ptr(new BasicViewpointEvaluator::PointCloudXYZI);
     pcl::fromROSMsg(cloud_msg,*cloud);
     m_evaluator.setOccupancyCloud(cloud);
-
+    
     m_ack_publisher.publish(std_msgs::Empty());
   }
 

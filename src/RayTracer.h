@@ -32,6 +32,7 @@
 #define RAY_TRACER_H
 
 #include <iostream>
+#include <math.h>
 #include <pcl/point_types.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_traits.h>
@@ -76,8 +77,9 @@ bool targetViewpoint(const Eigen::Vector3f& rayo,const Eigen::Vector3f& target,c
 struct SignedIntensityOccupancyPolicy
 {
   enum OccupancyStatus { FREE = 0, OCCUPIED, UNKNOWN };
-  static constexpr float EPS = 1e-4;
-
+  // static constexpr float EPS = 1e-4;
+  static constexpr float EPS = 1.0;
+  
   template <typename PointT>
   OccupancyStatus getOccupancyStatus(const PointT& p);
 };
