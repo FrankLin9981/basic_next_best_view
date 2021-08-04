@@ -5,7 +5,7 @@
    
     <arg name="voxel_resolution"        default="0.02"/>
     <arg name="sensor_range_max"        default="1.5"/>
-    <arg name="sphere_radius"           default="0.60"/>
+    <arg name="sphere_radius"           default="0.50"/>
  
     <arg name="horizontal_resolution"   default="6" />
     <arg name="vertical_resolution"     default="4" />
