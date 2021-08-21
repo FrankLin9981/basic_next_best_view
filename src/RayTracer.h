@@ -78,7 +78,7 @@ struct SignedIntensityOccupancyPolicy
 {
   enum OccupancyStatus { FREE = 0, OCCUPIED, UNKNOWN };
   // static constexpr float EPS = 1e-4;
-  static constexpr float EPS = 1.0;
+  static constexpr float EPS = 0.4;
   
   template <typename PointT>
   OccupancyStatus getOccupancyStatus(const PointT& p);

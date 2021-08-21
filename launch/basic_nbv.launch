@@ -3,17 +3,17 @@
     <arg name="occupancy_topic"         default="/basic_next_best_view/occupancy"/>
     <arg name="poi_topic"               default="/basic_next_best_view/poi"/>
    
-    <arg name="voxel_resolution"        default="0.02"/>
-    <arg name="sensor_range_max"        default="1.5"/>
+    <arg name="voxel_resolution"        default="0.01"/>
+    <arg name="sensor_range_max"        default="1.0"/>
     <arg name="sphere_radius"           default="0.50"/>
  
-    <arg name="horizontal_resolution"   default="6" />
-    <arg name="vertical_resolution"     default="4" />
-    <arg name="half_fov_horizontal"     default="${M_PI * 45.0 / 180}" />
-    <arg name="half_fov_vertical"       default="${M_PI * 30.0 / 180}" />
+    <arg name="horizontal_resolution"   default="16" />
+    <arg name="vertical_resolution"     default="10" />
+    <arg name="half_fov_horizontal"     default="32.0" />
+    <arg name="half_fov_vertical"       default="20.0" />
 
-    <arg name="latitude_max"            default="135.0" />
-    <arg name="latitude_min"            default="45.0" />
+    <arg name="latitude_max"            default="120.0" />  <!-- 135 -->
+    <arg name="latitude_min"            default="60.0" />   <!-- 45 -->
     <arg name="latitude_step"           default="15.0" />
     <arg name="longitude_max"           default="-135.0" />
     <arg name="longitude_min"           default="-225.0" />
@@ -22,7 +22,7 @@
     <arg name="zrotation_min"           default="0.0" />
     <arg name="zrotation_step"          default="90.0" />
 
-    <arg name="occupied_voxel_weight"   default="0.0" />
+    <arg name="occupied_voxel_weight"   default="-0.2" />
     <arg name="unknown_voxel_weight"    default="1.0" />
 
     <node pkg="basic_next_best_view" type="basic_next_best_view" name="basic_nbv" output="screen">
